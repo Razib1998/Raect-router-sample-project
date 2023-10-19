@@ -7,6 +7,7 @@ import Layout from './components/Layout/Layout';
 import Home from './components/Home/Home';
 import Products from './components/Products/Products';
 import ProductDetails from './components/ProductDetails/ProductDetails';
+import DashBoardLayout from './components/DashBoardLayout/DashBoardLayout';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         element: <ProductDetails></ProductDetails>,
         loader: ({params}) => fetch(`https://dummyjson.com/products/${params.id}`),
       },
+      {
+        path:'/dashboard',
+        element: <DashBoardLayout></DashBoardLayout> 
+      }
     ],
   },
 ]);
