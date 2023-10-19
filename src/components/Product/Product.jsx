@@ -1,10 +1,22 @@
 /* eslint-disable react/prop-types */
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Product = ({product}) => {
-    const { id, images, price, title} =product;
+    const { id, images, price, title} =product; 
+    const  navigate = useNavigate()
+
+    const handelProductDetails = () =>{
+
+      const user = true
+      if(user){
+       navigate(`/products/${id}`)
+      }
+      else{
+        navigate('/')
+      }
+    }
     return (
       <div>
         <div className="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -75,11 +87,14 @@ const Product = ({product}) => {
               <span className="text-3xl font-bold text-gray-900 dark:text-white">
                 {price}$
               </span>
-              <Link to={`/products/${id}`}>
+              {/* <Link to={`/products/${id}`}>
                 <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   Show Details
                 </button>
-              </Link>
+              </Link> */}
+              <button onClick={handelProductDetails} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Show Details
+              </button>
             </div>
           </div>
         </div>
